@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from objectpack import desktop
 from .controller import controller
+from . import actions
 
 
 def register_urlpatterns():
@@ -15,6 +16,10 @@ def register_actions():
     Регистрация экшен-паков
     """
     return controller.packs.extend([
+        actions.ContentTypeAction(),
+        actions.UserAction(),
+        actions.GroupAction(),
+        actions.PermissionAction()
         # YourActionPack()
     ])
 
